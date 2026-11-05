@@ -48,3 +48,9 @@ Official APKs and checksums are built by the private Hero's Handbook CI
 pipeline and published here after validation. This repository does not
 contain build scripts, development source, signing credentials, or private
 CI outputs.
+
+## Camacho's Craft release notification
+
+Publishing a GitHub Release with an uploaded installable APK triggers `.github/workflows/notify-camachos-craft.yml`. The workflow requests a new production build of Camacho's Craft, whose build fetches current public GitHub Releases and updates the download panel automatically. If a publication event is missed, the notification workflow can be started manually from Actions.
+
+Configure the repository's Actions secret **`CLOUDFLARE_DEPLOY_HOOK_URL`** with the Cloudflare Workers Builds Deploy Hook URL for the website's `main` branch. Keep that URL private. The website also runs a six-hour backup synchronization.
